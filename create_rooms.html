@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="create_rooms.css">
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="create_rooms.js"></script>
+    <title>Page de création des chambres de l'hôtel 'Le Terminus'</title>
+</head>
+<body>
+
+    <fieldset>
+        <legend>Création de chambres pour l'hôtel 'Le Terminus'</legend>
+        <br>Superficie (m2 - Min. 10, Max. 200):<br>
+        <input id = 'superficie' type = 'number' name = 'super' min = '10' max = '200' maxlength = '3' placeholder = 'superficie (m2)' required><br>
+        <br>Literie (descriptif libre):<br>
+        <input id = 'literie' type = 'text' name = 'lit' maxlength = '255' placeholder = 'literie' size = '200' required><br>
+        <br>Equipement (descriptif libre):<br>
+        <input id = 'equipement' type = 'text' name = 'equip' maxlength = '255' placeholder = 'équipement' size = '200' required><br>
+        <br>Chambre fumeur (oui/non):<br>
+        <select id = 'fumeur' name = 'fum' maxlength = '3' required>
+            <option value = 'oui'>OUI</option>
+            <option value = 'non'>NON</option>
+        </select><br>
+        <br>Parking (oui/non):<br>
+        <select id = 'parking' name = 'park' maxlength = '3' required>
+            <option value = 'oui'>OUI</option>
+            <option value = 'non'>NON</option>
+        </select><br>
+        <br>Vue (descriptif libre):<br>
+        <input id = 'vue' type = 'text' name = 'lavue' maxlength = '255' placeholder = 'vue' size = '200' required><br>
+        <br>Salle de bain (descriptif libre):<br>
+        <input id = 'bain' type = 'text' name = 'lebain' maxlength = '255' placeholder = 'bain' size = '200' required><br>
+        <br>Descriptif (libre):<br>
+        <input id = 'descriptif' type = 'text' name = 'desc' maxlength = '1024' placeholder = 'descriptif' size = '200' required><br>
+        <br>Url photo chambre:<br>
+        <input id = 'photo' type = 'text' name = 'laphoto' maxlength = '255' placeholder = 'url photo' size = '200' required><br>
+        <br>Tarif chambre (1 € à 9999 €):<br>
+        <input id = 'tarif' type = 'number' name = 'letarif' min = '1' max = '9999' maxlength = '4' placeholder = 'tarif (1 à 9999 €)' required><br>
+        <br>Disponible (oui/non):<br>
+        <select id = 'dispo' name = 'ladispo' maxlength = '3' required>
+            <option value = 'oui'>OUI</option>
+            <option value = 'non'>NON</option>
+        </select><br><br>
+        <button id = 'validate' type = 'button'>Valider</button>
+    </fieldset>
+
+</body>
+</html>
