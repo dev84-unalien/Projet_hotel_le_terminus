@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="eaKeep">
+        <SCRIPT src="../../../third-parties/yav/js_compact/yav.js">
+            & nbsp;
+        </SCRIPT>
+        <SCRIPT src="../../../third-parties/yav/js_compact/yav-config-fr.js">
+            & nbsp;
+        </SCRIPT>
+        <SCRIPT>
+            var rules = new Array();
+            rules[0] = 'email|required|E-mail';
+            rules[1] = 'email|email|e-mail: Veuillez vérifier votre adresse e-mail ';
+            rules[2] = 'prenom|required|Prenom';
+            rules[3] = 'nom|required|Nom';
+            rules[4] = 'telephone|required|Telephone';
+            rules[5] = 'chambre|required|Chambre';
+            rules[6] = 'arrivee|required|Date d\'arrivée';
+            rules[7] = 'depart|required|Date de départ';
+
+            function swapDisplay(id) {
+                if (getStyleObject(id).display == 'block') {
+                    hideCompById(id);
+                } else {
+                    showCompById(id);
+                }
+            }
+        </SCRIPT>
+        <form class="fckForm" style="margin: 0pt;" onsubmit="return performCheck('contactForm', rules, 'classic');" action="../../../iw/core/main/sendForm.jsp" name="contactForm">
+            <table width="460" class="fckTable">
+                <tbody>
+                    <tr>
+                        <th colspan="4">Reservation</th>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><strong>Information personnelles<br />
+                </strong></td>
+                    </tr>
+                    <tr>
+                        <td width="80">Prenom*</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="prenom" /></td>
+                        <td width="80">Nom*</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="nom" /></td>
+                    </tr>
+                    <tr>
+                        <td width="80">Ville</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="ville" /></td>
+                        <td width="80">Pays</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="pays" /></td>
+                    </tr>
+                    <tr>
+                        <td width="80">Telephone*</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="telephone" />&#160;</td>
+                        <td width="80">Portable</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="portable" /></td>
+                    </tr>
+                    <tr>
+                        <td width="80">Fax</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="fax" /></td>
+                        <td width="80">E-mail*</td>
+                        <td>&#160;<input type="text" style="width: 150px;" name="email" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table width="460" class="fckTable">
+                <tbody>
+                    <tr>
+                        <td colspan="2"><strong>Demande de réservation<br />
+                </strong></td>
+                    </tr>
+                    <tr>
+                        <td width="150">Chambre*</td>
+                        <td><select name="chambre">
+                <option selected="" value="select...">sélect...</option>
+                <option value="simple">simple</option>
+                <option value="double">double</option>
+               <option value="triple">triple</option>
+                </select></td>
+                    </tr>
+                    <tr>
+                        <td width="150">Arrivee*</td>
+                        <td><input type="text" style="width: 150px;" name="arrivee" /> (jj/mm/aa)</td>
+                    </tr>
+                    <tr>
+                        <td width="150">Depart*</td>
+                        <td><input type="text" style="width: 150px;" name="depart" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Notes</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="text" style="width: 500px; height: 100px;" name="notes" />&#160;<input type="hidden" value="Contact direct" name="formTitle" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p>La reservation ne sera prise en compte qu'apres une confirmation telephonique. Verifiez le numero de telephone.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><input type="submit" style="float: right;" value="Envoyer" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input id="boutton" type="button" value="retour" onclick="document.location.href='leterminus.html';">
+        </form>
+    </div>
+</body>
+
+</html>
