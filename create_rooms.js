@@ -1,47 +1,99 @@
 $(document).ready(function() {
 
-    let mail = '';
-    let pass1 = '';
-    let pass2 = '';
-    let ausweis = 0;
-
+    let id = null;
+    let superficie = null;
+    let literie = '';
+    let equipement = '';
+    let fumeur = '';
+    let parking = '';
+    let vue = '';
+    let bain = '';
+    let descriptif = '';
+    let photo ='';
+    let tarif = null;
+    let dispo = '';
+    let ausweis = null;
+    
         $('#validate').click(function() {
 
             ausweis = 0;
-            mail = $('#usermail:text').val();
-            pass1 = $('#userpass1:text').val();
-            pass2 = $('#userpass2:text').val();
+            superficie = $('#superficie').val();
+            literie = $('#literie').val();
+            equipement = $('#equipement').val();
+            fumeur = $('#fumeur').val();
+            parking = $('#parking').val();
+            vue = $('#vue').val();
+            bain = $('#bain').val();
+            descriptif = $('#descriptif').val();
+            photo = $('#photo').val();
+            tarif = $('#tarif').val();
+            dispo = $('#dispo').val();
 
-            if (mail == '') {$('#usermail').addClass('badentry'); ausweis = 0;}
-            else {ausweis++; $('#usermail').removeClass('badentry');}
-            if (pass1 == '') {$('#userpass1').addClass('badentry'); ausweis = 0;}
-            else {ausweis++; $('#userpass1').removeClass('badentry');}
-            if (pass2 == '') {$('#userpass2').addClass('badentry'); ausweis = 0;}
-            else {ausweis++; $('#userpass2').removeClass('badentry');}
+            if (superficie == '') {$('#superficie').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#superficie').removeClass('badentry');}
+            
+            if (literie == '') {$('#literie').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#literie').removeClass('badentry');}
+            
+            if (equipement == '') {$('#equipement').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#equipement').removeClass('badentry');}
 
-            if (ausweis == 3) {
-                if (pass1 == pass2) {ausweis++}
-                else {alert('Les deux Mdp ne sont pas identiques!');}
+            if (fumeur == '') {$('#fumeur').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#fumeur').removeClass('badentry');}
+
+            if (parking == '') {$('#parking').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#parking').removeClass('badentry');}
+
+            if (vue == '') {$('#vue').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#vue').removeClass('badentry');}
+
+            if (bain == '') {$('#bain').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#bain').removeClass('badentry');}
+
+            if (descriptif == '') {$('#descriptif').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#descriptif').removeClass('badentry');}
+
+            if (photo == '') {$('#photo').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#photo').removeClass('badentry');}
+
+            if (tarif == '') {$('#tarif').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#tarif').removeClass('badentry');}
+
+            if (dispo == '') {$('#dispo').addClass('badentry'); ausweis = 0;}
+                else {ausweis++; $('#dispo').removeClass('badentry');}
+
+            if (ausweis == 11) {
+                cifammoniacal(superficie, literie, equipement, fumeur, parking, vue, bain, descriptif, photo, tarif, dispo);
             }
-            if (ausweis == 4) {
-                cifammoniacal(mail, pass1, pass2);
-            }
+                else {alert("Formulaire invalide, wtf, call the police!");}
         });
 
-    function cifammoniacal(cifemail, cifpassword, cifconfirmpwd) {
+        function cifammoniacal(cifsup, ciflit, cifequ, ciffum, cifpar, cifvue, cifbai, cifdes, cifpho, ciftar, cifdis) {
 
-        $.ajax({
-            url: "http://localhost/sign.php",
-            type: 'POST',
-            data: {email: cifemail, password: cifpassword, confirmPassword: cifconfirmpwd},
-            success: monHandler,
-            error: function () {
-                alert("Something's rotten in the Kingdom... Cannot sign...");
+            console.log(cifsup);
+            console.log(ciflit);
+            console.log(cifequ);
+            console.log(ciffum);
+            console.log(cifpar);
+            console.log(cifvue);
+            console.log(cifbai);
+            console.log(cifdes);
+            console.log(cifpho);
+            console.log(ciftar);
+            console.log(cifdis);
+
+            $.ajax({
+                url: "http://localhost/create_rooms.php",
+                type: 'POST',
+                data: {bcksup: cifsup, bcklit: ciflit, bckequ: cifequ, bckfum: ciffum, bckpar: cifpar, bckvue: cifvue, bckbai: cifbai, bckdes: cifdes, bckpho: cifpho, bcktar: ciftar, bckdis: cifdis},
+                success: myHandler,
+                error: function () {
+                    alert("Something's rotten in the Kingdom... Impossible de créer la chambre...");
+                }
+            });
+
+            function myHandler (result) {
+                alert(result);
             }
-        });
-
-        function monHandler (result) {
-        alert(result);
         }
-    }
 });
